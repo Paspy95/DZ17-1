@@ -9,18 +9,19 @@ import static org.hamcrest.Matchers.equalTo;
 class MobileBankApiTestV4 {
     @Test
     void shouldReturnDemoAccounts() {
-      // Given - When - Then
-      // Предусловия
-      given()
-          .baseUri("http://localhost:9999/api/v1")
-      // Выполняемые действия
-      .when()
-          .get("/demo/accounts")
-      // Проверки
-      .then()
-          .statusCode(200)
-              .body("[0].id", equalTo(2))
-          .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
-      ;
+        // Given - When - Then
+        // Предусловия
+        given()
+                .baseUri("http://localhost:9999/api/v1")
+                // Выполняемые действия
+                .when()
+                .get("/demo/accounts")
+                // Проверки
+                .then()
+                .statusCode(200)
+                .body("[0].id", equalTo(1))
+                .body("[0].currency", equalTo("RUB"))
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+        ;
     }
 }
